@@ -18,8 +18,6 @@ package io.helidon.microprofile.example.messaging.sse;
 
 import io.helidon.microprofile.server.Server;
 
-import org.eclipse.microprofile.config.spi.ConfigProviderResolver;
-
 /**
  * Explicit example.
  */
@@ -35,10 +33,6 @@ public class Main {
     public static void main(String[] args) {
         Server server = Server.builder()
                 .addApplication(MessagingSseExampleApplication.class)
-                // using a customized helidon config instance (in this case the default...)
-                .config(ConfigProviderResolver.instance()
-                        .getBuilder()
-                        .build())
                 .host("localhost")
                 .build();
 
